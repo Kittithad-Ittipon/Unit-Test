@@ -1,0 +1,3 @@
+Dialog message: เลขบัตรประชาชนไม่ถูกต้อง 
+ID Card Error ?
+Please Tye Again

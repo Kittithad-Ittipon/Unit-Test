@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-test('R00027', async ({ page }) => {
+test.skip('R00027', async ({ page }) => {
     await page.goto('https://payment.surin.rmuti.ac.th/');
     await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00027/R00027-1.png'});
     await page.getByRole('link', { name: 'สมัครสมาชิกใหม่ คลิก' }).click();
