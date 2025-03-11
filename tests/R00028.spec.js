@@ -4,6 +4,7 @@ test('R00028', async ({ page }) => {
     await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00028/R00028-1.png'});
     await page.getByRole('link', { name: 'สมัครสมาชิกใหม่ คลิก' }).click();
     await page.getByRole('button', { name: 'สมัครสมาชิก' }).click();
+    await page.waitForTimeout(5000);
     await expect(page.getByText('กรุณาระบุเลขบัตรประชาชน')).toBeVisible();
     await expect(page.locator('#member_name-error')).toBeVisible();
     await expect(page.locator('#member_tell-error')).toBeVisible();

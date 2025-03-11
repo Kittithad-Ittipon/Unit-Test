@@ -10,6 +10,7 @@ test('R00035', async ({ page }) => {
     await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-3.png'});
     await page.getByRole('button', { name: 'แจ้งชำระ' }).click();
     await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-4.png'});
+    await page.waitForTimeout(5000);
     await expect(page.locator('#bank_id-error')).toBeVisible();
     await expect(page.locator('#payment_type_id-error')).toBeVisible();
     await expect(page.locator('#bank_repay_id-error')).toBeVisible();
