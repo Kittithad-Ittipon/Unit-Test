@@ -1,0 +1,24 @@
+import { test, expect } from '@playwright/test';
+test('R00014', async ({ page }) => {
+    await page.goto('https://wsr.surin.rmuti.ac.th/html/QuotaWSR/index.php');
+    await page.getByRole('button', { name: 'สมัครเรียน' }).click();
+    await page.getByRole('link', { name: '    สมัครเรียน ปีการศึกษา' }).click();
+    await page.getByPlaceholder(' กรุณากรอกเลชบัตรบัตรประชาชน / ID Card ').click();
+    await page.getByPlaceholder(' กรุณากรอกเลชบัตรบัตรประชาชน / ID Card ').fill('1101801346531');
+    await page.getByRole('button', { name: 'เข้าสู่ระบบ' }).click();
+    await page.locator('input[name="edu"]').first().check();
+    await page.locator('#degree1').check();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00014/R00014-1.png'});
+    await page.locator('#degree2').check();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00014/R00014-2.png'});
+    await page.locator('input[name="edu"]').first().check();
+    await expect(page.getByText('ประกาศนียบัตรวิชาชีพชั้นสูง ปริญญาตรี')).toBeVisible();
+    await page.locator('input[name="edu"]').nth(1).check();
+    await expect(page.getByText('ประกาศนียบัตรวิชาชีพชั้นสูง ปริญญาตรี')).toBeVisible();
+    await page.locator('input[name="edu"]').nth(2).check();
+    await expect(page.getByText('ระดับปริญญาตรี เทียบโอน/ต่อเนื่อง')).toBeVisible();
+    await page.locator('input[name="edu"]').nth(3).check();
+    await expect(page.getByText('ปริญญาโท')).toBeVisible();
+    await page.locator('input[name="edu"]').nth(4).check();
+    await expect(page.getByText('ปริญญาเอก')).toBeVisible();
+});

@@ -1,0 +1,20 @@
+import { test, expect } from '@playwright/test';
+test('R00035', async ({ page }) => {
+    await page.goto('https://payment.surin.rmuti.ac.th/');
+    await page.locator('#login').click();
+    await page.locator('#login').fill('1329901205307');
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-1.png'});
+    await page.getByRole('button', { name: 'LOGIN' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-2.png'});
+    await page.getByRole('link', { name: 'คลิก' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-3.png'});
+    await page.getByRole('button', { name: 'แจ้งชำระ' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00035/R00035-4.png'});
+    await expect(page.locator('#bank_id-error')).toBeVisible();
+    await expect(page.locator('#payment_type_id-error')).toBeVisible();
+    await expect(page.locator('#bank_repay_id-error')).toBeVisible();
+    await expect(page.getByText('กรุณาไฟล์')).toBeVisible();
+    await expect(page.locator('#payment_date-error')).toBeVisible();
+    await expect(page.locator('#payment_time-error')).toBeVisible();
+    await expect(page.locator('#payment_money-error')).toBeVisible();
+});

@@ -1,0 +1,26 @@
+import { test, expect } from '@playwright/test';
+test('R00034', async ({ page }) => {
+    await page.goto('https://payment.surin.rmuti.ac.th/');
+    await page.locator('#login').click();
+    await page.locator('#login').fill('1329901205307');
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00034/R00034-1.png'});
+    await page.getByRole('button', { name: 'LOGIN' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00034/R00034-2.png'});
+    await page.getByRole('link', { name: 'คลิก' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00034/R00034-3.png'});
+    await page.getByLabel('บัญชีธนาคารของมหาลัยฯ').selectOption('1');
+    await page.locator('#payment_type_id').selectOption('70');
+    await page.getByLabel('โอนจากธนาคาร').selectOption('2');
+    await page.getByRole('textbox', { name: 'วันที่ชำระ' }).fill('2025-03-09');
+    await page.getByRole('textbox', { name: 'เวลาที่ชำระ' }).click();
+    await page.getByRole('textbox', { name: 'เวลาที่ชำระ' }).fill('19:00');
+    await page.getByRole('spinbutton', { name: 'ยอดโอน(บาท)' }).click();
+    await page.getByRole('spinbutton', { name: 'ยอดโอน(บาท)' }).fill('5');
+    await page.locator('#payment_files').click();
+    // await page.locator('#payment_files').setInputFiles('D:/Mutimedia/R00034.jpg');
+    await page.locator('#payment_detail').click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00034/R00034-4.png'});
+    await page.waitForTimeout(5000);
+    // await page.getByRole('button', { name: 'แจ้งชำระ' }).click();
+    await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00034/R00034-5.png'});
+});
