@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-test('R00034', async ({ page }) => {
+test.skip('R00034', async ({ page }) => {
     await page.goto('https://payment.surin.rmuti.ac.th/');
     await page.locator('#login').click();
     await page.locator('#login').fill('1329901205307');

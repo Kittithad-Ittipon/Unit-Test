@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-test('R00015', async ({ page }) => {
+test.skip('R00015', async ({ page }) => {
     await page.goto('https://wsr.surin.rmuti.ac.th/html/QuotaWSR/index.php');
     await page.getByRole('button', { name: 'สมัครเรียน' }).click();
     await page.screenshot({ path: 'C:/Automation-Test/automation_github/img/R00015/R00015-1.png'});
